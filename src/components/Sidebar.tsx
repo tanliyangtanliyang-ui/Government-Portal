@@ -40,13 +40,10 @@ export function Sidebar({ active, onChange }: { active: NavId; onChange: (id: Na
         <div className="rounded-xl bg-gradient-to-br from-emerald-500/10 to-transparent border border-emerald-500/20 p-3">
           <div className="flex items-center gap-2 mb-1.5">
             <Icons.ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-            <span className="text-[10px] font-mono uppercase tracking-widest text-emerald-400/80">System Status</span>
+            <span className="text-[10px] font-mono uppercase tracking-widest text-emerald-400/80">Data source</span>
           </div>
-          <div className="text-xs text-slate-300">All systems operational</div>
-          <div className="flex items-center gap-1.5 mt-1.5">
-            <span className="status-dot text-emerald-400" style={{ background: '#34d399' }} />
-            <span className="text-[10px] font-mono text-slate-500">99.98% uptime · 42ms</span>
-          </div>
+          <div className="text-xs text-slate-300">FarmXpress pilot network</div>
+          <div className="text-[10px] text-slate-500 mt-1">v2 dataset (synthetic, Jan–Jun 2026) plus records created in the portals. Read-only.</div>
         </div>
       </div>
     </aside>

@@ -6,18 +6,21 @@ import {
   OverviewView, SupplyView, LogisticsView, RegionalView, FarmerView,
   WasteView, ClimateView, CarbonView, PolicyView, ReportsView,
 } from '@/components/Views';
+import { CanonicalShipment } from '@/components/CanonicalShipment';
+import { NetworkSummaryPanel } from '@/components/NetworkSummaryPanel';
+import { DataDetails } from '@/components/DataDetails';
 
 const subs: Record<NavId, string> = {
-  overview: 'National smart agriculture command center · Malaysia',
-  supply: 'Real-time food supply stability & risk monitoring',
-  logistics: 'AI-powered agricultural logistics intelligence',
-  regional: 'State-by-state agricultural performance analysis',
-  farmer: 'Farmer ecosystem growth & digital adoption',
-  waste: 'Food waste reduction across the supply chain',
-  climate: 'Weather, disaster prediction & agricultural impact',
-  carbon: 'Sustainability & carbon performance dashboard',
-  policy: 'AI policy simulation & impact prediction',
-  reports: 'Generated intelligence & policy documents',
+  overview: 'FarmXpress pilot network at a glance · records, not forecasts',
+  supply: 'Supply and demand recorded in the network',
+  logistics: 'Trips, truck load and hub performance',
+  regional: 'Supply and demand by state',
+  farmer: 'Farmers and cooperatives in the network',
+  waste: 'Produce losses recorded along the chain',
+  climate: 'Weather inputs and their recorded effect on trips',
+  carbon: 'Trips, distance and CO₂e avoided by shared trips (estimates)',
+  policy: 'What-if calculator from recorded averages',
+  reports: 'Download the figures as CSV',
 };
 
 export default function App() {
@@ -48,6 +51,10 @@ export default function App() {
         <Topbar title={current.label} sub={subs[active]} />
         <main className="flex-1 overflow-y-auto p-4 lg:p-6 bg-grid bg-radial-glow">
           <div className="max-w-[1600px] mx-auto">
+            <DataDetails storageKey="fx.gov.dataDetails" className="border-slate-700/70 bg-slate-900/40" mutedClassName="text-slate-400">
+              <CanonicalShipment />
+              <NetworkSummaryPanel />
+            </DataDetails>
             {render()}
           </div>
         </main>
